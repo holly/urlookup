@@ -1,6 +1,7 @@
 build
 tmp
 .env
+.python-version
 *.log
 *.tmp
 __pycache__
