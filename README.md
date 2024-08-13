@@ -19,12 +19,6 @@ for ubuntu
 * gcc
 * build-essential
 
-### build python(using pyenv)
-
-* zlib1g-dev
-* libbz2-dev
-* libsqlite3-dev
-
 #### fonts
 
 * fonts-noto-cjk
@@ -63,4 +57,16 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-keyring.g
 sudo apt -y update && sudo apt -y upgrade && sudo apt install -y google-chrome-stable
 ```
 
+### (optional) build python using pyenv
 
+* zlib1g-dev
+* libbz2-dev
+* libsqlite3-dev
+
+## install
+
+```shell
+git clone https://github.com/holly/urlookup.git
+cd urlookup
+./build.sh
+```
