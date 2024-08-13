@@ -26,11 +26,13 @@ def main():
     parser.add_argument("--lighthouse-strategy", type=str, default="mobile", choices=["mobile", "desktop"], help="lighthouse strategy type [mobile or desktop] default:mobile")
     parser.add_argument("-N", "--no-redirect", action="store_true", help="Disable auto redirect")
     parser.add_argument("-W", "--whois", action="store_true", help="Enable whois information")
-    parser.add_argument("--virustotal", action="store_true", help="Enable virustotal information")
+    parser.add_argument("--virustotal", action="store_true", help="Enable virustotal information. require `VT_API_KEY` environment variable")
     parser.add_argument("--wordpress-details", action="store_true", help="Enable wordpress details(version, theme, plugins)")
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument("--screenshot",  type=str, help="Save to the screenshot image")
-    group.add_argument("--fullscreenshot",  type=str, help="Save to the fullscreenshot image")
+    parser.add_argument("--screenshot",  type=str, help="Save to the screenshot image")
+    parser.add_argument("--fullscreenshot",  type=str, help="Save to the fullscreenshot image")
+    #group = parser.add_mutually_exclusive_group()
+    #group.add_argument("--screenshot",  type=str, help="Save to the screenshot image")
+    #group.add_argument("--fullscreenshot",  type=str, help="Save to the fullscreenshot image")
     args   = parser.parse_args()
 
     if args.envfile and os.path.isfile(args.envfile):

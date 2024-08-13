@@ -1,8 +1,67 @@
 # urlookup
 
+urlookup is a nice lookup tool that can obtain various information and screenshots about a website by specifying a URL, including whois, DNSBL, geolocation, TLS encryption and connection methods, and more
+
+## Features
+
+* http
+  * response header
+  * cert information
+  * tls version
+  * http1.1, 2, 3 check
+* dns
+  * forward lookup
+  * dns reverse lookup
+* DNSBL
+* geoip (require [MAXMIND](https://www.maxmind.com/en/home) API KEY)
+* virustotal (require [VIRUSTOTAL](https://www.virustotal.com/) API_KEY)
+* HTML tags(meta, link, script) information
+* Save ScreenShot and FullScreen ScreenShot
+* WordPress
+  * version
+  * theme
+  * plugins
+* [LightHouse](https://github.com/GoogleChrome/lighthouse) summary
+
+## Usage
+
+```shell
+usage: _urlookup.py [-h] [-v] [--verbose] [-E ENVFILE] [--dnsbl] [-] [-D GEOIP_DATADIR] [--download-geoip-mmdb] [-L]
+                    [--lighthouse-strategy {mobile,desktop}] [-N] [-W] [--virustotal] [--wordpress-details] [--screenshot SCREENSHOT]
+                    [--fullscreenshot FULLSCREENSHOT]
+                    url
+
 A tool that can dig up all sorts of info about URLs, ya see!
 
-## dependencies
+positional arguments:
+  url                   The URL to process
+
+options:
+  -h, --help            show this help message and exit
+  -v, --version         show program's version number and exit
+  --verbose             verbose output
+  -E ENVFILE, --envfile ENVFILE
+                        Read urlookup environ variable file
+  --dnsbl               Enable dnsbl check
+  -G, --geoip           Enable GeoIP information
+  -D GEOIP_DATADIR, --geoip-datadir GEOIP_DATADIR
+                        GeoIP mmdb data directory. default:/usr/share/GeoIP
+  --download-geoip-mmdb
+                        Download GeoIP mmdb data to GeoIP mmdb data directory. require `GEOIP_LICENSE_KEY` environment variable
+  -L, --lighthouse      Enable lighthouse information. require lighthouse command
+  --lighthouse-strategy {mobile,desktop}
+                        lighthouse strategy type [mobile or desktop] default:mobile
+  -N, --no-redirect     Disable auto redirect
+  -W, --whois           Enable whois information
+  --virustotal          Enable virustotal information. require `VT_API_KEY` environment variable
+  --wordpress-details   Enable wordpress details(version, theme, plugins)
+  --screenshot SCREENSHOT
+                        Save to the screenshot image
+  --fullscreenshot FULLSCREENSHOT
+                        Save to the fullscreenshot image
+```
+
+## Dependencies
 
 for ubuntu
 
@@ -70,3 +129,30 @@ git clone https://github.com/holly/urlookup.git
 cd urlookup
 ./build.sh
 ```
+
+### about build.sh
+
+We will install an HTTP/3-compatible version of `curl` and build it so that we can perform HTTP/3 communication using the `pycurl` module in Python."
+
+These will be installed in `${HOME}/.urlookup/local`.
+
+#### install middleware list
+
+* [openssl](https://github.com/openssl/openssl)
+* [nghttp2](https://github.com/nghttp2/nghttp2)
+* [nghttp3](https://github.com/ngtcp2/nghttp3)
+* [brotli](https://github.com/google/brotli)
+* [curl](https://curl.se/)
+* [pycurl](http://pycurl.io/docs/latest/index.html)
+* python modules (from [requirements.txt](https://github.com/holly/urlookup/blob/main/requirements.txt))
+
+#### make openssl directory
+
+Generate an `SSL_CERT_DIR` that the OpenSSL built in `${HOME}/.urlookup/local/ssl/certs` can recognize.
+This is executed by `build.sh` through [mkcertdir.pl](https://github.com/holly/urlookup/blob/main/mkcertdir.pl).
+
+## License
+
+urlookup is licensed under the MIT License, which means that you are free to get and use it for commercial and non-commercial purposes as long as you fulfill its conditions.
+
+See the LICENSE.txt file for more details.
