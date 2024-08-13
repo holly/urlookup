@@ -1,0 +1,301 @@
+{
+  "redir": {
+    "redirect": false,
+    "orig_url": "https://example.com/"
+  },
+  "http_response": {
+    "status": 200,
+    "headers": {
+      "Content-Encoding": "gzip",
+      "Accept-Ranges": "bytes",
+      "Age": "502907",
+      "Cache-Control": "max-age=604800",
+      "Content-Type": "text/html; charset=UTF-8",
+      "Date": "Tue, 13 Aug 2024 16:12:30 GMT",
+      "Etag": "\"3147526947\"",
+      "Expires": "Tue, 20 Aug 2024 16:12:30 GMT",
+      "Last-Modified": "Thu, 17 Oct 2019 07:18:26 GMT",
+      "Server": "ECAcc (sac/2525)",
+      "X-Cache": "HIT",
+      "Content-Length": "648",
+      "Connection": "close"
+    },
+    "brotli_support": true
+  },
+  "domains": {
+    "domain": "example.com",
+    "apexdomain": "example.com"
+  },
+  "rdata": {
+    "forward_lookup": {
+      "A": [
+        "93.184.215.14"
+      ],
+      "AAAA": [
+        "2606:2800:21f:cb07:6820:80da:af6b:8b2c"
+      ],
+      "TXT": [
+        "wgyf8z8cgvm2qmxpnbnldrcltvk4xqfn",
+        "v=spf1 -all"
+      ],
+      "MX": [
+        "0 ."
+      ],
+      "NS": [
+        "b.iana-servers.net.",
+        "a.iana-servers.net."
+      ],
+      "SOA": [
+        "ns.icann.org. noc.dns.icann.org. 2024041859 7200 3600 1209600 3600"
+      ]
+    },
+    "reverse_lookup": {
+      "ipv4": "93.184.215.14",
+      "reversename": null
+    }
+  },
+  "dnsbl": {
+    "domain": {
+      "dbl.spamhaus.org": "NXDOMAIN",
+      "dbl.nordspam.com": "NXDOMAIN",
+      "multi.uribl.com": "NXDOMAIN",
+      "uribl.spameatingmonkey.net": "NXDOMAIN",
+      "uribl.rspamd.com": "NXDOMAIN"
+    },
+    "ipv4": {
+      "bl.spamcop.net": "NXDOMAIN",
+      "b.barracudacentral.org": "NXDOMAIN",
+      "zen.spamhaus.org": "NXDOMAIN",
+      "bl.nordspam.com": "NXDOMAIN",
+      "multi.uribl.com": "NXDOMAIN"
+    }
+  },
+  "geoip": {
+    "asn": {
+      "autonomous_system_number": 15133,
+      "autonomous_system_organization": "EDGECAST"
+    },
+    "city": {
+      "continent": {
+        "code": "NA",
+        "name": "North America"
+      },
+      "country": {
+        "geoname_id": 6252001,
+        "iso_code": "US",
+        "name": "United States"
+      },
+      "location": {
+        "accuracy_radius": 1000,
+        "latitude": 37.751,
+        "longitude": -97.822,
+        "time_zone": "America/Chicago"
+      }
+    },
+    "googlemap_url": "https://www.google.com/maps/search/?api=1&query=37.751,-97.822"
+  },
+  "whois": {
+    "domain": {
+      "domain_name": "EXAMPLE.COM",
+      "registrar": "RESERVED-Internet Assigned Numbers Authority",
+      "whois_server": "whois.iana.org",
+      "referral_url": null,
+      "updated_date": "2023/08/14 07:01:38",
+      "creation_date": "1995/08/14 04:00:00",
+      "expiration_date": "2024/08/13 04:00:00",
+      "name_servers": [
+        "A.IANA-SERVERS.NET",
+        "B.IANA-SERVERS.NET"
+      ],
+      "status": [
+        "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+        "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+        "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+      ],
+      "emails": null,
+      "dnssec": "signedDelegation",
+      "name": null,
+      "org": null,
+      "address": null,
+      "city": null,
+      "state": null,
+      "registrant_postal_code": null,
+      "country": null,
+      "days_since_born": 10592,
+      "days_remaining": -1
+    },
+    "ipv4": {
+      "handle": "93.184.212.0 - 93.184.215.255",
+      "parent_handle": "93.184.208.0 - 93.184.223.255",
+      "name": "EDGECAST-NETBLK-03",
+      "whois_server": "whois.ripe.net",
+      "type": "ip network",
+      "terms_of_service_url": "http://www.ripe.net/db/support/db-terms-conditions.pdf",
+      "copyright_notice": "",
+      "description": [
+        "NETBLK-03-EU-93-184-212-0-22"
+      ],
+      "last_changed_date": "2012/06/22 21:48:10",
+      "registration_date": "2012/06/22 21:48:10",
+      "expiration_date": null,
+      "url": "https://rdap.db.ripe.net/ip/93.184.215.14",
+      "rir": "ripe",
+      "entities": {
+        "administrative": [
+          {
+            "handle": "DS7892-RIPE",
+            "url": "https://rdap.db.ripe.net/entity/DS7892-RIPE",
+            "type": "entity",
+            "rir": "ripe",
+            "name": "Derrick Sawyer",
+            "address": {
+              "po_box": "",
+              "ext_address": "",
+              "street_address": "",
+              "locality": "",
+              "region": "",
+              "postal_code": "",
+              "country": ""
+            },
+            "tel": "+18773343236"
+          }
+        ],
+        "technical": [
+          {
+            "handle": "DS7892-RIPE",
+            "url": "https://rdap.db.ripe.net/entity/DS7892-RIPE",
+            "type": "entity",
+            "rir": "ripe",
+            "name": "Derrick Sawyer",
+            "address": {
+              "po_box": "",
+              "ext_address": "",
+              "street_address": "",
+              "locality": "",
+              "region": "",
+              "postal_code": "",
+              "country": ""
+            },
+            "tel": "+18773343236"
+          }
+        ],
+        "registrant": [
+          {
+            "handle": "MNT-EDGECAST",
+            "url": "https://rdap.db.ripe.net/entity/MNT-EDGECAST",
+            "type": "entity",
+            "rir": "ripe",
+            "name": "MNT-EDGECAST"
+          }
+        ],
+        "abuse": [
+          {
+            "handle": "AR13582-RIPE",
+            "type": "entity",
+            "name": "Abuse-C Role",
+            "address": {
+              "po_box": "",
+              "ext_address": "",
+              "street_address": "",
+              "locality": "",
+              "region": "",
+              "postal_code": "",
+              "country": ""
+            },
+            "email": "abuse@edg.io"
+          }
+        ]
+      },
+      "country": "EU",
+      "ip_version": 4,
+      "assignment_type": "assigned pa",
+      "network": "93.184.212.0/22"
+    }
+  },
+  "virustotal": {
+    "categories": {
+      "BitDefender": "computersandsoftware",
+      "Xcitium Verdict Cloud": "content server",
+      "Sophos": "information technology",
+      "Forcepoint ThreatSeeker": "information technology"
+    },
+    "last_analysis_stats": {
+      "malicious": 1,
+      "suspicious": 1,
+      "undetected": 24,
+      "harmless": 69,
+      "timeout": 0
+    },
+    "last_analysis_date": "2024/08/13 16:10:50",
+    "analysis": {
+      "_id": "u-0f115db062b7c0dd030b16878c99dea5c354b49dc37b38eb8846179c7783e9d7-1723565450",
+      "date": 1723565450,
+      "stats": {
+        "malicious": 1,
+        "suspicious": 1,
+        "undetected": 24,
+        "harmless": 69,
+        "timeout": 0
+      }
+    }
+  },
+  "https": {
+    "cert": {
+      "days_remaining": 200,
+      "not_before": "Jan 30 00:00:00 2024 GMT",
+      "not_after": "Mar  1 23:59:59 2025 GMT",
+      "serial_number": "075BCEF30689C8ADDF13E51AF4AFE187",
+      "subject_altname": [
+        "www.example.org",
+        "example.net",
+        "example.edu",
+        "example.com",
+        "example.org",
+        "www.example.com",
+        "www.example.edu",
+        "www.example.net"
+      ],
+      "subject": {
+        "organization_name": "Internet Corporation for Assigned Names and Numbers",
+        "common_name": "www.example.org"
+      },
+      "issuer": {
+        "organization_name": "DigiCert Inc",
+        "common_name": "DigiCert Global G2 TLS RSA SHA256 2020 CA1"
+      },
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIHbjCCBlagAwIBAgIQB1vO8waJyK3fE+Ua9K/hhzANBgkqhkiG9w0BAQsFADBZ\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMTMwMQYDVQQDEypE\naWdpQ2VydCBHbG9iYWwgRzIgVExTIFJTQSBTSEEyNTYgMjAyMCBDQTEwHhcNMjQw\nMTMwMDAwMDAwWhcNMjUwMzAxMjM1OTU5WjCBljELMAkGA1UEBhMCVVMxEzARBgNV\nBAgTCkNhbGlmb3JuaWExFDASBgNVBAcTC0xvcyBBbmdlbGVzMUIwQAYDVQQKDDlJ\nbnRlcm5ldMKgQ29ycG9yYXRpb27CoGZvcsKgQXNzaWduZWTCoE5hbWVzwqBhbmTC\noE51bWJlcnMxGDAWBgNVBAMTD3d3dy5leGFtcGxlLm9yZzCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAIaFD7sO+cpf2fXgCjIsM9mqDgcpqC8IrXi9wga/\n9y0rpqcnPVOmTMNLsid3INbBVEm4CNr5cKlh9rJJnWlX2vttJDRyLkfwBD+dsVvi\nvGYxWTLmqX6/1LDUZPVrynv/cltemtg/1Aay88jcj2ZaRoRmqBgVeacIzgU8+zmJ\n7236TnFSe7fkoKSclsBhPaQKcE3Djs1uszJs8sdECQTdoFX9I6UgeLKFXtg7rRf/\nhcW5dI0zubhXbrW8aWXbCzySVZn0c7RkJMpnTCiZzNxnPXnHFpwr5quqqjVyN/aB\nKkjoP04Zmr+eRqoyk/+lslq0sS8eaYSSHbC5ja/yMWyVhvMCAwEAAaOCA/IwggPu\nMB8GA1UdIwQYMBaAFHSFgMBmx9833s+9KTeqAx2+7c0XMB0GA1UdDgQWBBRM/tAS\nTS4hz2v68vK4TEkCHTGRijCBgQYDVR0RBHoweIIPd3d3LmV4YW1wbGUub3Jnggtl\neGFtcGxlLm5ldIILZXhhbXBsZS5lZHWCC2V4YW1wbGUuY29tggtleGFtcGxlLm9y\nZ4IPd3d3LmV4YW1wbGUuY29tgg93d3cuZXhhbXBsZS5lZHWCD3d3dy5leGFtcGxl\nLm5ldDA+BgNVHSAENzA1MDMGBmeBDAECAjApMCcGCCsGAQUFBwIBFhtodHRwOi8v\nd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQG\nCCsGAQUFBwMBBggrBgEFBQcDAjCBnwYDVR0fBIGXMIGUMEigRqBEhkJodHRwOi8v\nY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRHbG9iYWxHMlRMU1JTQVNIQTI1NjIw\nMjBDQTEtMS5jcmwwSKBGoESGQmh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdp\nQ2VydEdsb2JhbEcyVExTUlNBU0hBMjU2MjAyMENBMS0xLmNybDCBhwYIKwYBBQUH\nAQEEezB5MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wUQYI\nKwYBBQUHMAKGRWh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEds\nb2JhbEcyVExTUlNBU0hBMjU2MjAyMENBMS0xLmNydDAMBgNVHRMBAf8EAjAAMIIB\nfQYKKwYBBAHWeQIEAgSCAW0EggFpAWcAdABOdaMnXJoQwzhbbNTfP1LrHfDgjhuN\nacCx+mSxYpo53wAAAY1b0vxkAAAEAwBFMEMCH0BRCgxPbBBVxhcWZ26a8JCe83P1\nJZ6wmv56GsVcyMACIDgpMbEo5HJITTRPnoyT4mG8cLrWjEvhchUdEcWUuk1TAHYA\nfVkeEuF4KnscYWd8Xv340IdcFKBOlZ65Ay/ZDowuebgAAAGNW9L8MAAABAMARzBF\nAiBdv5Z3pZFbfgoM3tGpCTM3ZxBMQsxBRSdTS6d8d2NAcwIhALLoCT9mTMN9OyFz\nIBV5MkXVLyuTf2OAzAOa7d8x2H6XAHcA5tIxY0B3jMEQQQbXcbnOwdJA9paEhvu6\nhzId/R43jlAAAAGNW9L8XwAABAMASDBGAiEA4Koh/VizdQU1tjZ2E2VGgWSXXkwn\nQmiYhmAeKcVLHeACIQD7JIGFsdGol7kss2pe4lYrCgPVc+iGZkuqnj26hqhr0TAN\nBgkqhkiG9w0BAQsFAAOCAQEABOFuAj4N4yNG9OOWNQWTNSICC4Rd4nOG1HRP/Bsn\nrz7KrcPORtb6D+Jx+Q0amhO31QhIvVBYs14gY4Ypyj7MzHgm4VmPXcqLvEkxb2G9\nQv9hYuEiNSQmm1fr5QAN/0AzbEbCM3cImLJ69kP5bUjfv/76KB57is8tYf9sh5ik\nLGKauxCM/zRIcGa3bXLDafk5S2g5Vr2hs230d/NGW1wZrE+zdGuMxfGJzJP+DAFv\niBfcQnFg4+1zMEKcqS87oniOyG+60RMM0MdejBD7AS43m9us96Gsun/4kufLQUTI\nFfnzxLutUV++3seshgefQOy5C/ayi8y1VTNmujPCxPCi6Q==\n-----END CERTIFICATE-----\n"
+    },
+    "tls_version": {
+      "tls_version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    },
+    "http_versions": {
+      "h1_1": true,
+      "h2": true,
+      "h3": true
+    }
+  },
+  "html_head": {
+    "title": "Example Domain",
+    "meta": {},
+    "link": {},
+    "script": []
+  },
+  "lighthouse": {
+    "categories": {
+      "performance": 100,
+      "seo": 90.0,
+      "accessibility": 88.0,
+      "best-practices": 100
+    },
+    "audits": {
+      "first-contentful-paint": "205.842 millisecond",
+      "largest-contentful-paint": "205.842 millisecond",
+      "total-blocking-time": "0.000 millisecond",
+      "interactive": "205.842 millisecond",
+      "cumulative-layout-shift": "0.000 millisecond",
+      "speed-index": "427.856 millisecond"
+    },
+    "report_url": "https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fexample.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&locale=ja"
+  }
+}

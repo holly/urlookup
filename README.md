@@ -8,22 +8,28 @@ urlookup is a nice lookup tool that can obtain various information and screensho
   * response header
   * cert information
   * tls version
-  * http1.1, 2, 3 check
+  * http/1.1, http/2, http/3 check
+  * brotli support check
 * dns
   * forward lookup
   * dns reverse lookup
-* DNSBL
-* geoip (require [MAXMIND](https://www.maxmind.com/en/home) API KEY)
-* virustotal (require [VIRUSTOTAL](https://www.virustotal.com/) API_KEY)
+* dnsbl
+* whois (require whois command)
+* geoip (require [MAXMIND](https://www.maxmind.com/en/home) GEOIP_LICENSE_KEY)
+* virustotal (require [VIRUSTOTAL](https://www.virustotal.com/) VT_API_KEY)
 * HTML tags(meta, link, script) information
-* Save ScreenShot and FullScreen ScreenShot
+* Save ScreenShot(using chrome, chromedriver and selenium)
+  * Normal(1920 x 1080)
+  * Vertical FullScreen ScreenShot
 * WordPress
   * version
   * theme
   * plugins
-* [LightHouse](https://github.com/GoogleChrome/lighthouse) summary
+* [LightHouse](https://github.com/GoogleChrome/lighthouse) summary (require lighthouse cli)
 
-## Usage
+### Usage
+
+result to json format.
 
 ```shell
 usage: _urlookup.py [-h] [-v] [--verbose] [-E ENVFILE] [--dnsbl] [-] [-D GEOIP_DATADIR] [--download-geoip-mmdb] [-L]
@@ -59,6 +65,45 @@ options:
                         Save to the screenshot image
   --fullscreenshot FULLSCREENSHOT
                         Save to the fullscreenshot image
+```
+
+### Example
+
+#### normal
+
+```shell
+$ bin/urlookup https://example.com/
+```
+
+output json sample is [here](https://github.com/holly/urlookup/blob/main/sample/example.com.json).
+
+#### screenshot
+
+```shell
+$ bin/urlookup https://example.com/ --screenshot=sample/example.com.png
+```
+screenshot sample is [here](https://github.com/holly/urlookup/blob/main/sample/example.com.png).
+
+#### all options (exclude --wordpress-details)
+
+
+```shell
+# setup .env
+$ cat <<EOL >.env
+VT_API_KEY=your_virustotal_api_key
+GEOIP_LICENSE_KEY=your_maxmind_api_key
+EOL
+
+# auto read .env
+$ bin/urlookup https://example.com/ --dnsbl --download-geoip=~/.urlookup/local/share/GeoIP --geoip --whois --virustotal --lighthouse --lighthouse-strategy=desktop
+```
+
+screenshot sample is [here](https://github.com/holly/urlookup/blob/main/sample/example.com_all.json).
+
+#### wordpress details
+
+```shell
+$ bin/urlookup https://your-wordpress-site.com/ --wordpress-details
 ```
 
 ## Dependencies
