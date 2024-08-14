@@ -35,8 +35,9 @@ result to json format.
 
 ```shell
 usage: _urlookup.py [-h] [-v] [--verbose] [-E ENVFILE] [--dnsbl] [-] [-D GEOIP_DATADIR] [--download-geoip-mmdb] [-L]
-                    [--lighthouse-strategy {mobile,desktop}] [-N] [-W] [--virustotal] [--wordpress-details] [--screenshot SCREENSHOT]
-                    [--fullscreenshot FULLSCREENSHOT]
+                    [--lighthouse-strategy {mobile,desktop}] [-N] [-W] [--virustotal] [--wordpress-details] 
+                    [--fullscreenshot-path FULLSCREENSHOT]
+                    [--screenshot-path SCREENSHOT_PATH] [--fullscreenshot-path FULLSCREENSHOT_PATH] [-o OUTPUT_PATH]
                     url
 
 A tool that can dig up all sorts of info about URLs, ya see!
@@ -63,10 +64,12 @@ options:
   -W, --whois           Enable whois information
   --virustotal          Enable virustotal information. require `VT_API_KEY` environment variable
   --wordpress-details   Enable wordpress details(version, theme, plugins)
-  --screenshot SCREENSHOT
+  --screenshot-path SCREENSHOT_PATH
                         Save to the screenshot image
-  --fullscreenshot FULLSCREENSHOT
+  --fullscreenshot-path FULLSCREENSHOT_PATH
                         Save to the fullscreenshot image
+  -o OUTPUT_PATH, --output-path OUTPUT_PATH
+                        Save to the output json file
 ```
 
 ### Example
