@@ -28,8 +28,10 @@ def main():
     parser.add_argument("-W", "--whois", action="store_true", help="Enable whois information")
     parser.add_argument("--virustotal", action="store_true", help="Enable virustotal information. require `VT_API_KEY` environment variable")
     parser.add_argument("--wordpress-details", action="store_true", help="Enable wordpress details(version, theme, plugins)")
-    parser.add_argument("--screenshot",  type=str, help="Save to the screenshot image")
-    parser.add_argument("--fullscreenshot",  type=str, help="Save to the fullscreenshot image")
+    parser.add_argument("--screenshot-path",  type=str, help="Save to the screenshot image")
+    parser.add_argument("--fullscreenshot-path",  type=str, help="Save to the fullscreenshot image")
+
+    parser.add_argument("-o", "--output-path",  type=argparse.FileType("w"), help="Save to the output json file")
     #group = parser.add_mutually_exclusive_group()
     #group.add_argument("--screenshot",  type=str, help="Save to the screenshot image")
     #group.add_argument("--fullscreenshot",  type=str, help="Save to the fullscreenshot image")
@@ -53,8 +55,8 @@ def main():
                 "virustotal": args.virustotal,
                 "wordpress_details": args.wordpress_details,
                 "geoip_datadir": args.geoip_datadir,
-                "screenshot": args.screenshot,
-                "fullscreenshot": args.fullscreenshot,
+                "screenshot_path": args.screenshot_path,
+                "fullscreenshot_path": args.fullscreenshot_path,
                 "verbose": args.verbose
             }
         #if "GEOIP_LICENSE_KEY" in os.environ:
@@ -62,7 +64,8 @@ def main():
         #if "VT_API_KEY" in os.environ:
         #    kwargs["vt_api_key"] = os.environ["VT_API_KEY"]
         res = urlookup.lookup_all(args.url, **kwargs)
-        print(json.dumps(res, ensure_ascii=False, indent=2))
+        f = args.output_path if args.output_path else sys.stdout
+        print(json.dumps(res, ensure_ascii=False, indent=2), file=f)
 
     except urlookup.InvalidURLError as e:
         parser.error(str(e))
