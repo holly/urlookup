@@ -106,9 +106,9 @@ screenshot sample is [here](https://github.com/holly/urlookup/blob/main/sample/e
 
 ```shell
 $ bin/urlookup https://your-wordpress-site.com/ --wordpress-details
+```
 
 output json sample is [here](https://github.com/holly/urlookup/blob/main/sample/wordpress_details_site.json).
-```
 
 ## Dependencies
 

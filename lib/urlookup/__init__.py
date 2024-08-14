@@ -1002,7 +1002,7 @@ class DummyResponseError(Exception):
     pass
 
 
-def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot=None, fullscreenshot=None, verbose=False):
+def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot_path=None, fullscreenshot_path=None, verbose=False):
 
     start_time = time.time()
 
@@ -1084,14 +1084,14 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
 
         data["html_head"] = o.head_information_by_html(html)
 
-        if screenshot or fullscreenshot:
-            if screenshot:
-                driver.save_screenshot(screenshot)
+        if screenshot_path or fullscreenshot_path:
+            if screenshot_path:
+                driver.save_screenshot(screenshot_path)
             if fullscreenshot:
                 w = driver.execute_script("return document.body.scrollWidth;")
                 h = driver.execute_script("return document.body.scrollHeight;")
                 driver.set_window_size(w, h)
-                driver.save_screenshot(fullscreenshot)
+                driver.save_screenshot(fullscreenshot_path)
         driver.quit()
 
         for meta_name in filter(lambda meta_name: re.match(r'twitter:(site|creator)', meta_name), data["html_head"]["meta"].keys()):
