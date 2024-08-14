@@ -4,6 +4,8 @@ urlookup is a nice lookup tool that can obtain various information and screensho
 
 ## Features
 
+retrieving http/dns/thirdparty services information to display json format.
+
 * http
   * response header
   * cert information
@@ -104,6 +106,8 @@ screenshot sample is [here](https://github.com/holly/urlookup/blob/main/sample/e
 
 ```shell
 $ bin/urlookup https://your-wordpress-site.com/ --wordpress-details
+
+output json sample is [here](https://github.com/holly/urlookup/blob/main/sample/wordpress_details_site.json).
 ```
 
 ## Dependencies
@@ -147,6 +151,8 @@ for ubuntu
 * libgbm-dev
 
 ### (optional) official google chrome
+
+The latest Selenium automatically installs Chrome and Chromedriver, but if you want to pre-install the official Google Chrome on your system, execute the following command.
 
 #### add gpg key
 
