@@ -52,7 +52,7 @@ SELENIUM_CACHEDIR     = os.path.join(os.environ["HOME"], ".cache/selenium")
 USER_AGENT            = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 WHOIS_CMD             = shutil.which("whois")
 X_URL                 = "https://x.com/{user}"
-VERSION               = 0.9
+VERSION               = 0.91
 
 CURL_HTTP1_1 = False
 CURL_HTTP2   = False

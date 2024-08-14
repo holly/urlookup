@@ -4,4 +4,6 @@ tmp
 .python-version
 *.log
 *.tmp
+*.org
+*.old
 __pycache__
