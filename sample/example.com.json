@@ -1,0 +1,98 @@
+{
+  "redir": {
+    "redirect": false,
+    "orig_url": "https://example.com/"
+  },
+  "http_response": {
+    "status": 200,
+    "headers": {
+      "Content-Encoding": "gzip",
+      "Accept-Ranges": "bytes",
+      "Age": "237003",
+      "Cache-Control": "max-age=604800",
+      "Content-Type": "text/html; charset=UTF-8",
+      "Date": "Tue, 13 Aug 2024 16:06:52 GMT",
+      "Etag": "\"3147526947+gzip\"",
+      "Expires": "Tue, 20 Aug 2024 16:06:52 GMT",
+      "Last-Modified": "Thu, 17 Oct 2019 07:18:26 GMT",
+      "Server": "ECAcc (sed/58ED)",
+      "X-Cache": "HIT",
+      "Content-Length": "648",
+      "Connection": "close"
+    }
+  },
+  "domains": {
+    "domain": "example.com",
+    "apexdomain": "example.com"
+  },
+  "rdata": {
+    "forward_lookup": {
+      "A": [
+        "93.184.215.14"
+      ],
+      "AAAA": [
+        "2606:2800:21f:cb07:6820:80da:af6b:8b2c"
+      ],
+      "TXT": [
+        "v=spf1 -all",
+        "wgyf8z8cgvm2qmxpnbnldrcltvk4xqfn"
+      ],
+      "MX": [
+        "0 ."
+      ],
+      "NS": [
+        "a.iana-servers.net.",
+        "b.iana-servers.net."
+      ],
+      "SOA": [
+        "ns.icann.org. noc.dns.icann.org. 2024041859 7200 3600 1209600 3600"
+      ]
+    },
+    "reverse_lookup": {
+      "ipv4": "93.184.215.14",
+      "reversename": null
+    }
+  },
+  "https": {
+    "cert": {
+      "days_remaining": 200,
+      "not_before": "Jan 30 00:00:00 2024 GMT",
+      "not_after": "Mar  1 23:59:59 2025 GMT",
+      "serial_number": "075BCEF30689C8ADDF13E51AF4AFE187",
+      "subject_altname": [
+        "www.example.org",
+        "example.net",
+        "example.edu",
+        "example.com",
+        "example.org",
+        "www.example.com",
+        "www.example.edu",
+        "www.example.net"
+      ],
+      "subject": {
+        "organization_name": "Internet Corporation for Assigned Names and Numbers",
+        "common_name": "www.example.org"
+      },
+      "issuer": {
+        "organization_name": "DigiCert Inc",
+        "common_name": "DigiCert Global G2 TLS RSA SHA256 2020 CA1"
+      },
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIHbjCCBlagAwIBAgIQB1vO8waJyK3fE+Ua9K/hhzANBgkqhkiG9w0BAQsFADBZ\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMTMwMQYDVQQDEypE\naWdpQ2VydCBHbG9iYWwgRzIgVExTIFJTQSBTSEEyNTYgMjAyMCBDQTEwHhcNMjQw\nMTMwMDAwMDAwWhcNMjUwMzAxMjM1OTU5WjCBljELMAkGA1UEBhMCVVMxEzARBgNV\nBAgTCkNhbGlmb3JuaWExFDASBgNVBAcTC0xvcyBBbmdlbGVzMUIwQAYDVQQKDDlJ\nbnRlcm5ldMKgQ29ycG9yYXRpb27CoGZvcsKgQXNzaWduZWTCoE5hbWVzwqBhbmTC\noE51bWJlcnMxGDAWBgNVBAMTD3d3dy5leGFtcGxlLm9yZzCCASIwDQYJKoZIhvcN\nAQEBBQADggEPADCCAQoCggEBAIaFD7sO+cpf2fXgCjIsM9mqDgcpqC8IrXi9wga/\n9y0rpqcnPVOmTMNLsid3INbBVEm4CNr5cKlh9rJJnWlX2vttJDRyLkfwBD+dsVvi\nvGYxWTLmqX6/1LDUZPVrynv/cltemtg/1Aay88jcj2ZaRoRmqBgVeacIzgU8+zmJ\n7236TnFSe7fkoKSclsBhPaQKcE3Djs1uszJs8sdECQTdoFX9I6UgeLKFXtg7rRf/\nhcW5dI0zubhXbrW8aWXbCzySVZn0c7RkJMpnTCiZzNxnPXnHFpwr5quqqjVyN/aB\nKkjoP04Zmr+eRqoyk/+lslq0sS8eaYSSHbC5ja/yMWyVhvMCAwEAAaOCA/IwggPu\nMB8GA1UdIwQYMBaAFHSFgMBmx9833s+9KTeqAx2+7c0XMB0GA1UdDgQWBBRM/tAS\nTS4hz2v68vK4TEkCHTGRijCBgQYDVR0RBHoweIIPd3d3LmV4YW1wbGUub3Jnggtl\neGFtcGxlLm5ldIILZXhhbXBsZS5lZHWCC2V4YW1wbGUuY29tggtleGFtcGxlLm9y\nZ4IPd3d3LmV4YW1wbGUuY29tgg93d3cuZXhhbXBsZS5lZHWCD3d3dy5leGFtcGxl\nLm5ldDA+BgNVHSAENzA1MDMGBmeBDAECAjApMCcGCCsGAQUFBwIBFhtodHRwOi8v\nd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQG\nCCsGAQUFBwMBBggrBgEFBQcDAjCBnwYDVR0fBIGXMIGUMEigRqBEhkJodHRwOi8v\nY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRHbG9iYWxHMlRMU1JTQVNIQTI1NjIw\nMjBDQTEtMS5jcmwwSKBGoESGQmh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdp\nQ2VydEdsb2JhbEcyVExTUlNBU0hBMjU2MjAyMENBMS0xLmNybDCBhwYIKwYBBQUH\nAQEEezB5MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wUQYI\nKwYBBQUHMAKGRWh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEds\nb2JhbEcyVExTUlNBU0hBMjU2MjAyMENBMS0xLmNydDAMBgNVHRMBAf8EAjAAMIIB\nfQYKKwYBBAHWeQIEAgSCAW0EggFpAWcAdABOdaMnXJoQwzhbbNTfP1LrHfDgjhuN\nacCx+mSxYpo53wAAAY1b0vxkAAAEAwBFMEMCH0BRCgxPbBBVxhcWZ26a8JCe83P1\nJZ6wmv56GsVcyMACIDgpMbEo5HJITTRPnoyT4mG8cLrWjEvhchUdEcWUuk1TAHYA\nfVkeEuF4KnscYWd8Xv340IdcFKBOlZ65Ay/ZDowuebgAAAGNW9L8MAAABAMARzBF\nAiBdv5Z3pZFbfgoM3tGpCTM3ZxBMQsxBRSdTS6d8d2NAcwIhALLoCT9mTMN9OyFz\nIBV5MkXVLyuTf2OAzAOa7d8x2H6XAHcA5tIxY0B3jMEQQQbXcbnOwdJA9paEhvu6\nhzId/R43jlAAAAGNW9L8XwAABAMASDBGAiEA4Koh/VizdQU1tjZ2E2VGgWSXXkwn\nQmiYhmAeKcVLHeACIQD7JIGFsdGol7kss2pe4lYrCgPVc+iGZkuqnj26hqhr0TAN\nBgkqhkiG9w0BAQsFAAOCAQEABOFuAj4N4yNG9OOWNQWTNSICC4Rd4nOG1HRP/Bsn\nrz7KrcPORtb6D+Jx+Q0amhO31QhIvVBYs14gY4Ypyj7MzHgm4VmPXcqLvEkxb2G9\nQv9hYuEiNSQmm1fr5QAN/0AzbEbCM3cImLJ69kP5bUjfv/76KB57is8tYf9sh5ik\nLGKauxCM/zRIcGa3bXLDafk5S2g5Vr2hs230d/NGW1wZrE+zdGuMxfGJzJP+DAFv\niBfcQnFg4+1zMEKcqS87oniOyG+60RMM0MdejBD7AS43m9us96Gsun/4kufLQUTI\nFfnzxLutUV++3seshgefQOy5C/ayi8y1VTNmujPCxPCi6Q==\n-----END CERTIFICATE-----\n"
+    },
+    "tls_version": {
+      "tls_version": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384"
+    },
+    "http_versions": {
+      "h1_1": true,
+      "h2": true,
+      "h3": true
+    }
+  },
+  "html_head": {
+    "title": "Example Domain",
+    "meta": {},
+    "link": {},
+    "script": []
+  }
+}

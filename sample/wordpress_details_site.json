@@ -1,0 +1,88 @@
+{
+  "app": "WordPress",
+  "version": "6.6.1",
+  "theme": {
+    "Theme_Name": "Graphy",
+    "Theme_URI": "http://themegraphy.com/wordpress-themes/graphy/",
+    "Author": "Themegraphy",
+    "Author_URI": "http://themegraphy.com/",
+    "Description": "Graphy is now compatible with WordPress 5.0 and Gutenberg! Graphy is a blog-oriented WordPress theme designed with great attention given to the beauty of the typography. Made using mobile-first responsive web design, even when your site is viewed on a smartphone or tablet there will be no negative impact on the beautiful typography.",
+    "Version": "2.3.2",
+    "Tested_up_to": "5.6",
+    "Requires_PHP": "5.6",
+    "License": "GNU General Public License v2 or later",
+    "License_URI": "http://www.gnu.org/licenses/gpl-2.0.html",
+    "Text_Domain": "graphy",
+    "Tags": "one-column, two-columns, right-sidebar, custom-colors, custom-header, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready"
+  },
+  "plugins": {
+    "Yoast SEO": {
+      "from_html": [
+        "<!-- This site is optimized with the Yoast SEO plugin"
+      ]
+    },
+    "WP Super Cache": {
+      "Contributors": "donncha, automattic, adnan007, dilirity, mikemayhem3030, pyronaur, thingalon",
+      "Tags": "performance, caching, wp-cache, wp-super-cache, cache",
+      "Requires_at_least": "6.5",
+      "Requires_PHP": "7.0",
+      "Tested_up_to": "6.6",
+      "Stable_tag": "1.12.4",
+      "License": "GPLv2 or later",
+      "License_URI": "http://www.gnu.org/licenses/gpl-2.0.html",
+      "Note": "this functionality is disabled by default. You will have to enable it on the Advanced Settings page."
+    },
+    "WP Multibyte Patch": {
+      "Contributors": "tenpura",
+      "Tags": "multibyte,i18n,wp-multibyte-patch,Japanese",
+      "Requires_at_least": "5.2",
+      "Tested_up_to": "5.5",
+      "Stable_tag": "2.9"
+    },
+    "WP-Optimize": {
+      "Contributors": "DavidAnderson, ruhanirabin, DNutbourne, aporter, snightingale, lumberhack, webulous",
+      "Donate_link": "https://david.dw-perspective.org.uk/donate",
+      "Tags": "cache, caching, image cache, minify, performance cache, page speed, image optimizer, compress images, optimize database, clean database",
+      "Requires_PHP": "5.6",
+      "Requires_at_least": "4.5",
+      "Tested_up_to": "6.6",
+      "Stable_tag": "3.5.0",
+      "License": "GPLv2+",
+      "License_URI": "https://www.gnu.org/licenses/gpl-2.0.html"
+    },
+    "Site Kit by Google": {
+      "from_html": [
+        "<meta name=\"generator\" content=\"Site Kit by Google"
+      ]
+    },
+    "Async JavaScript": {
+      "Contributors": "(cloughit), optimizingmatters, futtta, wormeyman",
+      "Donate_link": "http://blog.futtta.be/2013/10/21/do-not-donate-to-me/",
+      "Tags": "async, javascript, pagespeed, performance, render blocking",
+      "Requires_at_least": "4.6",
+      "Tested_up_to": "5.8",
+      "Stable_tag": "2.21.08.31",
+      "License": "GPLv2 or later",
+      "License_URI": "http://www.gnu.org/licenses/gpl-2.0.html"
+    },
+    "Native LazyLoad": {
+      "Contributors": "google, flixos90",
+      "Requires_at_least": "4.7",
+      "Tested_up_to": "5.3",
+      "Requires_PHP": "7.0",
+      "Stable_tag": "1.0.2",
+      "License": "Apache License 2.0",
+      "License_URI": "https://www.apache.org/licenses/LICENSE-2.0",
+      "Tags": "lazyload, lazy, load, native, loading, images, iframes"
+    },
+    "Code Snippets": {
+      "Contributors": "bungeshea, ver3, lightbulbman, 0aksmith, codesnippetspro",
+      "Donate_link": "https://codesnippets.pro",
+      "Tags": "code, snippets, multisite, php, css",
+      "License": "MIT",
+      "License_URI": "license.txt",
+      "Stable_tag": "3.6.5.1",
+      "Tested_up_to": "6.5.3"
+    }
+  }
+}
