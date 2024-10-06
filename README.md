@@ -19,6 +19,7 @@ retrieving http/dns/thirdparty services information to display json format.
 * whois (require whois command)
 * geoip (require [MAXMIND](https://www.maxmind.com/en/home) GEOIP_LICENSE_KEY)
 * virustotal (require [VIRUSTOTAL](https://www.virustotal.com/) VT_API_KEY)
+* HTML source
 * HTML tags(meta, link, script) information
 * Save ScreenShot(using chrome, chromedriver and selenium)
   * Normal(1920 x 1080)
