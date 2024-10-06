@@ -19,6 +19,7 @@ retrieving http/dns/thirdparty services information to display json format.
 * whois (require whois command)
 * geoip (require [MAXMIND](https://www.maxmind.com/en/home) GEOIP_LICENSE_KEY)
 * virustotal (require [VIRUSTOTAL](https://www.virustotal.com/) VT_API_KEY)
+* HTML source
 * HTML tags(meta, link, script) information
 * Save ScreenShot(using chrome, chromedriver and selenium)
   * Normal(1920 x 1080)
@@ -34,10 +35,9 @@ retrieving http/dns/thirdparty services information to display json format.
 result to json format.
 
 ```shell
-usage: _urlookup.py [-h] [-v] [--verbose] [-E ENVFILE] [--dnsbl] [-] [-D GEOIP_DATADIR] [--download-geoip-mmdb] [-L]
-                    [--lighthouse-strategy {mobile,desktop}] [-N] [-W] [--virustotal] [--wordpress-details] 
-                    [--fullscreenshot-path FULLSCREENSHOT]
-                    [--screenshot-path SCREENSHOT_PATH] [--fullscreenshot-path FULLSCREENSHOT_PATH] [-o OUTPUT_PATH]
+usage: _urlookup.py [-h] [-v] [--verbose] [-E ENVFILE] [--dnsbl] [-G] [-D GEOIP_DATADIR] [--download-geoip-mmdb] [-L]
+                    [--lighthouse-strategy {mobile,desktop}] [-N] [-P] [-W] [--virustotal] [--wordpress-details] [--screenshot-path SCREENSHOT_PATH]
+                    [--fullscreenshot-path FULLSCREENSHOT_PATH] [-o OUTPUT_PATH]
                     url
 
 A tool that can dig up all sorts of info about URLs, ya see!
@@ -61,6 +61,7 @@ options:
   --lighthouse-strategy {mobile,desktop}
                         lighthouse strategy type [mobile or desktop] default:mobile
   -N, --no-redirect     Disable auto redirect
+  -P, --page-source     Include content page source
   -W, --whois           Enable whois information
   --virustotal          Enable virustotal information. require `VT_API_KEY` environment variable
   --wordpress-details   Enable wordpress details(version, theme, plugins)

@@ -6,6 +6,7 @@ import ctypes
 import dns.resolver
 import dns.reversename
 import glob
+import hashlib
 import importlib
 import inspect
 import json
@@ -52,7 +53,7 @@ SELENIUM_CACHEDIR     = os.path.join(os.environ["HOME"], ".cache/selenium")
 USER_AGENT            = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 WHOIS_CMD             = shutil.which("whois")
 X_URL                 = "https://x.com/{user}"
-VERSION               = 0.91
+VERSION               = 0.92
 
 CURL_HTTP1_1 = False
 CURL_HTTP2   = False
@@ -1002,7 +1003,7 @@ class DummyResponseError(Exception):
     pass
 
 
-def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot_path=None, fullscreenshot_path=None, verbose=False):
+def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", page_source=False, vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot_path=None, fullscreenshot_path=None, verbose=False):
 
     start_time = time.time()
 
@@ -1082,6 +1083,13 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         html = driver.page_source
         chromes = o.search_chrome_path()
 
+        if page_source:
+            data["page_source"] = {}
+            raw_html_byte = o.make_response(res.url).read()
+            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
+            data["page_source"]["by_selenium"] = html
+
         data["html_head"] = o.head_information_by_html(html)
 
         if screenshot_path or fullscreenshot_path:
@@ -1126,6 +1134,13 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
 
         if lighthouse:
             data["lighthouse"] = o.lighthouse_by_url(res.url, strategy=lighthouse_strategy, chrome_binary=chromes["chrome_binaries"][0])
+
+    elif re.match(r'^2\d\d$', str(res.status)) and  re.match(r'^text/.*', res.headers.get("content-type")):
+        if page_source:
+            data["page_source"] = {}
+            raw_html_byte = o.make_response(res.url).read()
+            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
 
     o.logger.debug("{} end. ({} sec)".format(inspect.currentframe().f_code.co_name, time.time() - start_time))
     return data

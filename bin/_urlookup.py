@@ -25,6 +25,7 @@ def main():
     parser.add_argument("-L", "--lighthouse", action="store_true", help="Enable lighthouse information. require lighthouse command")
     parser.add_argument("--lighthouse-strategy", type=str, default="mobile", choices=["mobile", "desktop"], help="lighthouse strategy type [mobile or desktop] default:mobile")
     parser.add_argument("-N", "--no-redirect", action="store_true", help="Disable auto redirect")
+    parser.add_argument("-P", "--page-source", action="store_true", help="Include content page source")
     parser.add_argument("-W", "--whois", action="store_true", help="Enable whois information")
     parser.add_argument("--virustotal", action="store_true", help="Enable virustotal information. require `VT_API_KEY` environment variable")
     parser.add_argument("--wordpress-details", action="store_true", help="Enable wordpress details(version, theme, plugins)")
@@ -51,6 +52,7 @@ def main():
                 "redirect": False if args.no_redirect else True,
                 "lighthouse": args.lighthouse,
                 "lighthouse_strategy": args.lighthouse_strategy,
+                "page_source": args.page_source,
                 "whois": args.whois,
                 "virustotal": args.virustotal,
                 "wordpress_details": args.wordpress_details,
