@@ -6,6 +6,7 @@ import ctypes
 import dns.resolver
 import dns.reversename
 import glob
+import hashlib
 import importlib
 import inspect
 import json
@@ -52,7 +53,7 @@ SELENIUM_CACHEDIR     = os.path.join(os.environ["HOME"], ".cache/selenium")
 USER_AGENT            = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 WHOIS_CMD             = shutil.which("whois")
 X_URL                 = "https://x.com/{user}"
-VERSION               = 0.91
+VERSION               = 0.92
 
 CURL_HTTP1_1 = False
 CURL_HTTP2   = False
@@ -1082,7 +1083,13 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         html = driver.page_source
         chromes = o.search_chrome_path()
 
+        raw_html_byte = o.make_response(res.url).read()
+        data["raw_page_source"] = raw_html_byte.decode("utf-8")
+        data["raw_page_source_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
+        data["page_source_by_selenium"] = html
+
         data["html_head"] = o.head_information_by_html(html)
+        print(res.read().decode("utf-8"))
 
         if screenshot_path or fullscreenshot_path:
             if screenshot_path:
