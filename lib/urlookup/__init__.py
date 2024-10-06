@@ -1003,7 +1003,7 @@ class DummyResponseError(Exception):
     pass
 
 
-def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot_path=None, fullscreenshot_path=None, verbose=False):
+def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirect=True, whois=False, virustotal=False, wordpress_details=False, lighthouse=False, lighthouse_strategy="mobile", page_source=False, vt_api_key=None, geoip_license_key=None, geoip_datadir=GEOIP_DATADIR, screenshot_path=None, fullscreenshot_path=None, verbose=False):
 
     start_time = time.time()
 
@@ -1083,10 +1083,12 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         html = driver.page_source
         chromes = o.search_chrome_path()
 
-        raw_html_byte = o.make_response(res.url).read()
-        data["raw_page_source"] = raw_html_byte.decode("utf-8")
-        data["raw_page_source_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
-        data["page_source_by_selenium"] = html
+        if page_source:
+            data["page_source"] = {}
+            raw_html_byte = o.make_response(res.url).read()
+            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
+            data["page_source"]["by_selenium"] = html
 
         data["html_head"] = o.head_information_by_html(html)
 
@@ -1134,9 +1136,11 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
             data["lighthouse"] = o.lighthouse_by_url(res.url, strategy=lighthouse_strategy, chrome_binary=chromes["chrome_binaries"][0])
 
     elif re.match(r'^2\d\d$', str(res.status)) and  re.match(r'^text/.*', res.headers.get("content-type")):
-        raw_html_byte = o.make_response(res.url).read()
-        data["raw_page_source"] = raw_html_byte.decode("utf-8")
-        data["raw_page_source_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
+        if page_source:
+            data["page_source"] = {}
+            raw_html_byte = o.make_response(res.url).read()
+            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
 
     o.logger.debug("{} end. ({} sec)".format(inspect.currentframe().f_code.co_name, time.time() - start_time))
     return data
