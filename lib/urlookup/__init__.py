@@ -717,6 +717,14 @@ class URLookUp:
         return data
 
 
+    def sha256(self, b):
+        if not isinstance(b, bytes):
+            if isinstance(b, str):
+                b = b.encode()
+            else:
+                raise TypeError("b is not bytes or str")
+        return hashlib.sha256(b).hexdigest()
+
     def tls_version_by_domain(self, domain, port=443):
 
         start_time = time.time()
@@ -1086,9 +1094,9 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         if page_source:
             data["page_source"] = {}
             raw_html_byte = o.make_response(res.url).read()
-            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
-            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
-            data["page_source"]["by_selenium"] = html
+            data["page_source"]["raw_content"]         = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"]            = o.sha256(raw_html_byte)
+            data["page_source"]["content_by_selenium"] = html
 
         data["html_head"] = o.head_information_by_html(html)
 
@@ -1139,8 +1147,8 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         if page_source:
             data["page_source"] = {}
             raw_html_byte = o.make_response(res.url).read()
-            data["page_source"]["raw"]      = raw_html_byte.decode("utf-8")
-            data["page_source"]["raw_hash"] = hashlib.sha256(raw_html_byte).hexdigest()
+            data["page_source"]["raw_content"] = raw_html_byte.decode("utf-8")
+            data["page_source"]["raw_hash"]    = o.sha256(raw_html_byte)
 
     o.logger.debug("{} end. ({} sec)".format(inspect.currentframe().f_code.co_name, time.time() - start_time))
     return data
