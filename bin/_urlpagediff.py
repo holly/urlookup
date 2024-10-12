@@ -61,6 +61,7 @@ def main():
     parser.add_argument("url", help="The URL to process")
     parser.add_argument("-v", "--version", action="version", version="%(prog)s {}".format(urlookup.VERSION))
     parser.add_argument("-E", "--envfile", type=str, help="Read urlookup environ variable file")
+    parser.add_argument("-U", "--update",  action="store_true", help="ile")
     args   = parser.parse_args()
 
     if args.envfile and os.path.isfile(args.envfile):
@@ -76,17 +77,24 @@ def main():
 
         if not os.path.isfile(cache_file):
             save_cache(cache_file, res)
-            print("{} cache is not exists. save new cache to {}.".format(args.url, cache_file))
-            return
+            warnings.warn("{} cache is not exists. save new cache to {}.".format(args.url, cache_file))
+            sys.exit(2)
 
         cache = read_cache(cache_file)
         if res["page_source"]["raw_hash"] == cache["page_source"]["raw_hash"]:
-            print("{} is not updated.".format(args.url))
+            #print("{} is not updated.".format(args.url))
             return
 
-        diff = difflib.unified_diff(cache["page_source"]["raw_content"].split(), res["page_source"]["raw_content"].split())
-        print("\n".join(diff))
-
+        #diff = difflib.unified_diff(cache["page_source"]["raw_content"].splitlines(), res["page_source"]["raw_content"].splitlines())
+        #diff = difflib.ndiff(cache["page_source"]["raw_content"].splitlines(), res["page_source"]["raw_content"].splitlines())
+        diff_lines = difflib.Differ().compare(cache["page_source"]["raw_content"].splitlines(), res["page_source"]["raw_content"].splitlines())
+        for line in diff_lines:
+            if not re.match(r'^(\+|\-)', line):
+                continue
+            print(line)
+        if args.update:
+            save_cache(cache_file, res)
+        sys.exit(1)
     except urlookup.InvalidURLError as e:
         parser.error(str(e))
 

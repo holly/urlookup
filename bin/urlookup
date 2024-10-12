@@ -1,16 +1,1 @@
-#!/usr/bin/env bash
-
-set -e
-set -o pipefail
-set -C
-
-SCRIPTDIR=$(cd $(dirname $0) && pwd)
-PREFIX="$HOME/.urlookup/local"
-URLOOKUP="$SCRIPTDIR/_urlookup.py"
-OPENSSL="$SCRIPTDIR/openssl"
-export PYTHONPATH="$PYTHONPATH:$SCRIPTDIR/../lib"
-export LD_LIBRARY_PATH="$PREFIX/lib64:$PREFIX/lib"
-#export SSL_CERT_DIR="$($OPENSSL version -d | awk '{ print $2 }')/certs"
-#export SSL_CERT_FILE=$SSL_CERT_DIR/ca-bundle.crt
-
-exec $URLOOKUP $@
+_wrapper.sh

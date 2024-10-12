@@ -1,15 +1,1 @@
-#!/usr/bin/env bash
-
-set -e
-set -o pipefail
-set -C
-
-SCRIPTDIR=$(cd $(dirname $0) && pwd)
-URLOOKUPDIR="$HOME/.urlookup"
-PREFIX="$URLOOKUPDIR/local"
-URLPAGEDIFF="$SCRIPTDIR/_urlpagediff.py"
-export PYTHONPATH="$PYTHONPATH:$SCRIPTDIR/../lib"
-export LD_LIBRARY_PATH="$PREFIX/lib64:$PREFIX/lib"
-export URLOOKUPDIR
-
-exec $URLPAGEDIFF $@
+_wrapper.sh
