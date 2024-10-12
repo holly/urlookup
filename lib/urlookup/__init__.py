@@ -1103,7 +1103,7 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
         if screenshot_path or fullscreenshot_path:
             if screenshot_path:
                 driver.save_screenshot(screenshot_path)
-            if fullscreenshot:
+            if fullscreenshot_path:
                 w = driver.execute_script("return document.body.scrollWidth;")
                 h = driver.execute_script("return document.body.scrollHeight;")
                 driver.set_window_size(w, h)
