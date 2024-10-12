@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 set -C
 
-CMDS=("urlpagediff" "urlookup")
+CMDS=("urlpagediff" "urlookup" "urlh3check")
 
 SCRIPTDIR=$(cd $(dirname $0) && pwd)
 URLOOKUPDIR="$HOME/.urlookup"
@@ -20,6 +20,11 @@ export URLOOKUPDIR
 
 for CMD in ${CMDS[@]}; do
 	if [[ $CMD = $(basename $0) ]]; then
-		exec "$SCRIPTDIR/_${CMD}.py" $@
+		for EXT in ".py" ".sh" ".pl"; do
+			SCRIPT="$SCRIPTDIR/_${CMD}${EXT}"
+			if [[ -f $SCRIPT ]] && [[ -x $SCRIPT ]]; then
+				exec $SCRIPT $@
+			fi
+		done
 	fi
 done
