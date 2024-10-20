@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import base64
 import certifi
 import concurrent.futures
 import ctypes
@@ -11,6 +12,7 @@ import importlib
 import inspect
 import json
 import logging
+import magic
 import os
 import re
 import shutil
@@ -53,7 +55,7 @@ SELENIUM_CACHEDIR     = os.path.join(os.environ["HOME"], ".cache/selenium")
 USER_AGENT            = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 WHOIS_CMD             = shutil.which("whois")
 X_URL                 = "https://x.com/{user}"
-VERSION               = 0.92
+VERSION               = 0.93
 
 CURL_HTTP1_1 = False
 CURL_HTTP2   = False
@@ -148,6 +150,21 @@ class URLookUp:
         if not isinstance(logger, logging.Logger):
             raise TypeError("logger is not logging.Logger instance")
         self._logger = logger
+
+    def b64(self, b):
+        if not isinstance(b, bytes):
+            if isinstance(b, str):
+                b = b.encode()
+            else:
+                raise TypeError("b is not bytes or str")
+        return base64.b64encode(b).decode("utf-8")
+
+    def b64_from_file(self, path):
+        if os.path.isfile(path):
+            f = open(path, "rb")
+        else:
+            raise FileNotFoundError("{} is not file".format(f))
+        return self.b64(f.read())
 
 
     def domain2apexdomain(self, domain):
@@ -1096,18 +1113,21 @@ def lookup_all(url, dnsbl=False, geoip=False, download_geoip_mmdb=False, redirec
             raw_html_byte = o.make_response(res.url).read()
             data["page_source"]["raw_content"]         = raw_html_byte.decode("utf-8")
             data["page_source"]["raw_hash"]            = o.sha256(raw_html_byte)
-            data["page_source"]["content_by_selenium"] = html
+            data["page_source"]["selenium_content"]    = html
 
         data["html_head"] = o.head_information_by_html(html)
 
         if screenshot_path or fullscreenshot_path:
+            data["screenshot"] = {}
             if screenshot_path:
                 driver.save_screenshot(screenshot_path)
+                data["screenshot"] = { "mimetype": magic.from_file(screenshot_path, mime=True), "base64": o.b64_from_file(screenshot_path) }
             if fullscreenshot_path:
                 w = driver.execute_script("return document.body.scrollWidth;")
                 h = driver.execute_script("return document.body.scrollHeight;")
                 driver.set_window_size(w, h)
                 driver.save_screenshot(fullscreenshot_path)
+                data["fullscreenshot"] = { "mimetype": magic.from_file(fullscreenshot_path, mime=True), "base64": o.b64_from_file(fullscreenshot_path) }
         driver.quit()
 
         for meta_name in filter(lambda meta_name: re.match(r'twitter:(site|creator)', meta_name), data["html_head"]["meta"].keys()):

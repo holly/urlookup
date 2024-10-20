@@ -26,6 +26,7 @@ packaging
 PySocks
 python-dateutil
 python-dotenv
+python-magic
 python-whois
 requests
 requests-file
