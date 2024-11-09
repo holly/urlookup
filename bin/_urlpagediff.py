@@ -84,7 +84,7 @@ def main():
         if res["page_source"]["raw_hash"] == cache["page_source"]["raw_hash"]:
             return
 
-        diff_lines = difflib.Differ().compare(cache["page_source"]["selenium_content"].splitlines(), res["page_source"]["selenium_content"].splitlines())
+        diff_lines = difflib.Differ().compare(cache["page_source"]["raw_content"].splitlines(), res["page_source"]["raw_content"].splitlines())
         for line in diff_lines:
             if not re.match(r'^(\+|\-)', line):
                 continue
