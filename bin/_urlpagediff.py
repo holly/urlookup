@@ -61,7 +61,8 @@ def main():
     parser.add_argument("url", help="The URL to process")
     parser.add_argument("-v", "--version", action="version", version="%(prog)s {}".format(urlookup.VERSION))
     parser.add_argument("-E", "--envfile", type=str, help="Read urlookup environ variable file")
-    parser.add_argument("-U", "--update",  action="store_true", help="update and store new response json to cache_file(savedir: $HOME/.urlookup/cache)")
+    parser.add_argument("--retrieve-cache", action="store_true", help="Read urlookup cache file(from $HOME/.urlookup/cache)")
+    parser.add_argument("-U", "--update",  action="store_true", help="update and store new response json to cache file(from $HOME/.urlookup/cache)")
     args   = parser.parse_args()
 
     if args.envfile and os.path.isfile(args.envfile):
@@ -73,6 +74,12 @@ def main():
         cache_dir  = os.path.join(os.environ["URLOOKUPDIR"], "cache")
         cache_file = os.path.join(cache_dir, url2fname(args.url))
         os.makedirs(cache_dir, exist_ok=True)
+
+        if args.retrieve_cache:
+            with open(cache_file, "r") as f:
+                print(f.read())
+                sys.exit()
+
         res = urlookup.lookup_all(args.url, page_source=True)
 
         if not os.path.isfile(cache_file):

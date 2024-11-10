@@ -9,7 +9,6 @@ CMDS=("urlpagediff" "urlookup" "urlh3check")
 SCRIPTDIR=$(cd $(dirname $0) && pwd)
 URLOOKUPDIR="$HOME/.urlookup"
 PREFIX="$URLOOKUPDIR/local"
-URLOOKUP="$SCRIPTDIR/_urlookup.py"
 OPENSSL="$SCRIPTDIR/openssl"
 export PYTHONPATH="$PYTHONPATH:$SCRIPTDIR/../lib"
 export LD_LIBRARY_PATH="$PREFIX/lib64:$PREFIX/lib"
